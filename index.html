@@ -1,0 +1,983 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATEMATIK REACTOR</title>
+<style>
+:root{
+--blue:#2879e8;--navy:#17345e;--sky:#eaf5ff;
+--yellow:#ffe18a;--green:#dff8ec;--text:#293b52;
+}
+*{box-sizing:border-box}
+body{
+margin:0;background:#f6fbff;color:var(--text);
+font-family:Arial,sans-serif;line-height:1.6
+}
+header{
+background:linear-gradient(120deg,#e3f3ff,#fff7d9);
+padding:20px 6% 45px
+}
+nav{
+max-width:1150px;margin:auto;display:flex;
+justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px
+}
+.logo{font-size:21px;font-weight:900;color:var(--navy)}
+.logo span{color:var(--blue)}
+nav a{color:var(--navy);text-decoration:none;font-weight:bold;margin:5px}
+.hero{
+max-width:1150px;margin:45px auto 0;
+display:grid;grid-template-columns:1.2fr .8fr;
+gap:25px;align-items:center
+}
+h1{font-size:clamp(38px,6vw,62px);line-height:1.1;color:var(--navy)}
+.hero p{font-size:18px;color:#60738b}
+.reactor{
+width:260px;height:260px;border-radius:50%;
+margin:auto;display:grid;place-items:center;
+background:radial-gradient(circle,#fff 25%,#cceaff 26% 45%,#83c5ff 46% 49%,#fff 50% 65%,#9bd5ff 66% 69%,#fff 70%);
+box-shadow:0 0 45px #83c5ff88;
+animation:pulse 3s infinite
+}
+.reactor strong{font-size:44px;color:var(--blue)}
+@keyframes pulse{50%{transform:scale(1.04)}}
+main{max-width:1150px;margin:auto;padding:20px 5% 60px}
+section{margin:40px 0;scroll-margin-top:20px}
+h2{font-size:29px;color:var(--navy)}
+.subtitle{color:#718198}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{
+background:white;border:1px solid #e0ebf6;
+border-radius:19px;padding:20px;
+box-shadow:0 8px 25px #315c8b12
+}
+.card h3{color:var(--navy)}
+.emoji{font-size:32px}
+.tag{background:var(--sky);color:var(--blue);padding:5px 10px;border-radius:20px;font-size:12px;font-weight:bold}
+.btn{
+border:0;border-radius:12px;padding:12px 19px;
+background:var(--blue);color:white;font-weight:bold;
+cursor:pointer;margin:5px
+}
+.btn.light{background:white;color:var(--blue);border:1px solid #d9e7f6}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.lesson{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.demo{background:linear-gradient(130deg,#e5f4ff,#fff5d7);padding:20px;border-radius:18px;text-align:center}
+.beads{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:20px}
+.bead{width:28px;height:28px;border-radius:50%;background:#ffbd4c;border:3px solid white;box-shadow:0 2px 5px #7775}
+input,select{
+padding:12px;border:1px solid #cbdced;border-radius:10px;
+font-size:15px;background:white;min-width:130px
+}
+input{flex:1}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.practice{background:white;border:1px solid #dfebf6;border-radius:20px;padding:22px}
+.question{text-align:center;font-size:48px;font-weight:900;color:var(--navy);margin:22px}
+.answer{text-align:center;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.answer input{max-width:210px;font-size:22px;text-align:center}
+.feedback{text-align:center;font-weight:bold;min-height:30px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+.stat{background:var(--sky);padding:13px;border-radius:13px;text-align:center}
+.stat b{display:block;color:var(--blue);font-size:25px}
+.progress{height:9px;background:#e7edf5;border-radius:20px;overflow:hidden}
+.progress div{height:100%;width:0;background:#39bd91;transition:.3s}
+.device{background:#eef7ff;border:1px dashed #8cb9e8;padding:22px;border-radius:18px}
+.status{background:#fff0d6;color:#885700;padding:7px 12px;border-radius:20px;font-weight:bold}
+table{width:100%;border-collapse:collapse;background:white;margin-top:12px}
+th,td{padding:11px;border-bottom:1px solid #e0ebf6;text-align:left}
+th{background:var(--sky);color:var(--navy)}
+.small{font-size:13px;color:#718198}
+footer{text-align:center;padding:25px;background:#eaf5ff;color:#526b87}
+@media(max-width:750px){
+.hero,.lesson{grid-template-columns:1fr}
+.grid{grid-template-columns:1fr 1fr}
+.stats{grid-template-columns:1fr 1fr}
+}
+@media(max-width:500px){
+.grid{grid-template-columns:1fr}
+nav{align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+<div class="logo">⚡ MATEMATIK <span>REACTOR</span></div>
+<div>
+<a href="#learn">Үйрену</a>
+<a href="#practice">Жаттығу</a>
+<a href="#device">Құрылғы</a>
+<a href="#results">Нәтиже</a>
+</div>
+</nav>
+
+<div class="hero">
+<div>
+<span class="tag">ОЙША ЕСЕПТЕУ ЗЕРТХАНАСЫ</span>
+<h1>Ойыңды қос.<br><span style="color:#2879e8">Жылдам есепте!</span></h1>
+<p>Математиканы қызықты ойындар арқылы үйрен. Әлемдік есептеу әдістерімен таныс. Өз жылдамдығыңды тексер!</p>
+<a href="#practice"><button class="btn">Жаттығуды бастау →</button></a>
+<a href="#learn"><button class="btn light">Үйрену</button></a>
+</div>
+<div class="reactor"><strong>1 + 1</strong></div>
+</div>
+</header>
+
+<main>
+
+<section id="learn">
+<h2>🌍 Әлемдік ойша есептеу әдістері</h2>
+<p class="subtitle">Әртүрлі елдердің есептеу тәсілдерімен таныс!</p>
+
+<div class="grid">
+<div class="card">
+<div class="emoji">🧮</div>
+<span class="tag">Жапония</span>
+<h3>Соробан</h3>
+<p>Моншақтарды жылжыту арқылы есептеуді үйренеміз.</p>
+<ol>
+<li>Бірліктерді анықта.</li>
+<li>Моншақтарды жылжыт.</li>
+<li>Қосу немесе азайтуды орында.</li>
+<li>Кейін моншақты ойша елестет.</li>
+</ol>
+</div>
+
+<div class="card">
+<div class="emoji">🔢</div>
+<span class="tag">Қытай</span>
+<h3>Суанпан</h3>
+<p>Қытайдың дәстүрлі есепшоты. Разрядтар арқылы есептеуге көмектеседі.</p>
+<ol>
+<li>Әр бағанды анықта.</li>
+<li>Моншақтарды сана.</li>
+<li>Ондыққа ауысуды үйрен.</li>
+</ol>
+</div>
+
+<div class="card">
+<div class="emoji">✨</div>
+<span class="tag">Үндістан</span>
+<h3>Ведалық математика</h3>
+<p>Кейбір есептерді қысқа жолмен шығаруға арналған тәсілдер.</p>
+<ol>
+<li>Сандарды ыңғайлы бөл.</li>
+<li>Жеңіл амалдан баста.</li>
+<li>Нәтижені тексер.</li>
+</ol>
+</div>
+
+<div class="card">
+<div class="emoji">🖐️</div>
+<span class="tag">Көрнекілік</span>
+<h3>Саусақпен есептеу</h3>
+<p>Сандарды саусақ арқылы көрсету және санау.</p>
+<ol>
+<li>Бірінші санды көрсет.</li>
+<li>Екінші санша саусақ қос.</li>
+<li>Барлығын сана.</li>
+</ol>
+</div>
+
+<div class="card">
+<div class="emoji">🟡</div>
+<span class="tag">Бастауыш әдісі</span>
+<h3>Ондыққа толықтыру</h3>
+<p>Санды 10-ға жеткізіп, есепті жеңілдетеміз.</p>
+<p><b>8 + 5</b></p>
+<p>5 санын 2 және 3 деп бөлеміз.</p>
+<p>8 + 2 = 10</p>
+<p>10 + 3 = <b>13</b></p>
+</div>
+
+<div class="card">
+<div class="emoji">🚀</div>
+<span class="tag">Қосымша әдіс</span>
+<h3>Трахтенберг жүйесі</h3>
+<p>Жылдам есептеуге арналған арнайы ережелер жүйесі. Көбейту мысалдарымен танысуға болады.</p>
+</div>
+</div>
+</section>
+
+<section>
+<h2>🎯 Моншақпен есептеуді үйрен</h2>
+<p class="subtitle">4 + 3 = 7. Көріп, санап, өзің орында!</p>
+<div class="lesson">
+<div class="card">
+<h3>Есептеу қадамдары</h3>
+<ol>
+<li>4 моншақты сана.</li>
+<li>Оған тағы 3 моншақ қос.</li>
+<li>Барлық моншақты сана.</li>
+<li>Жауабың — 7!</li>
+</ol>
+<p>Келесі қадамда моншақтарды қолданбай, ойша есептеп көр.</p>
+</div>
+<div class="demo">
+<div class="question">4 + 3 = ?</div>
+<div class="beads" id="beads"></div>
+<button class="btn" onclick="showBeads()">Моншақтарды көрсету</button>
+<p id="beadText">Батырманы бас!</p>
+</div>
+</div>
+</section>
+
+<section id="practice">
+<h2>⚡ MATEMATIK REACTOR — жаттығу алаңы</h2>
+<p class="subtitle">Атыңды жаз, деңгейді таңда және есептерді орында!</p>
+
+<div class="practice">
+<div class="row">
+<input id="student" placeholder="Оқушының аты-жөні">
+<select id="grade">
+<option>3-сынып</option>
+<option>4-сынып</option>
+</select>
+<select id="level">
+<option value="easy">Жеңіл</option>
+<option value="medium">Орташа</option>
+<option value="hard">Күрделі</option>
+</select>
+<select id="count">
+<option value="5">5 есеп</option>
+<option value="10" selected>10 есеп</option>
+<option value="15">15 есеп</option>
+</select>
+</div>
+
+<div class="progress"><div id="bar"></div></div>
+<div class="question" id="question">Дайынсың ба?</div>
+<div class="answer">
+<input id="answer" type="number" placeholder="Жауабың">
+<button class="btn" id="checkBtn" onclick="checkAnswer()">Тексеру</button>
+</div>
+<div class="feedback" id="feedback">Жаттығуды бастау батырмасын бас!</div>
+<div style="text-align:center">
+<button class="btn" onclick="startQuiz()">🚀 Бастау</button>
+<button class="btn light" onclick="resetQuiz()">Қайта бастау</button>
+</div>
+
+<div class="stats">
+<div class="stat"><b id="done">0</b>Орындалды</div>
+<div class="stat"><b id="correct">0</b>Дұрыс</div>
+<div class="stat"><b id="seconds">0</b>Уақыт (сек.)</div>
+<div class="stat"><b id="accuracy">0%</b>Дәлдік</div>
+</div>
+</div>
+</section>
+
+<section id="device">
+<h2>🔌 Arduino құрылғысын қосу</h2>
+<div class="device">
+<span class="status" id="deviceStatus">Құрылғы қосылмаған</span>
+<p>Arduino құрылғысын USB арқылы компьютерге жалғап, Chrome немесе Edge браузерін пайдалан.</p>
+<button class="btn" onclick="connectDevice()">USB арқылы қосу</button>
+<button class="btn light" onclick="disconnectDevice()">Ажырату</button>
+<p class="small" id="deviceMessage">
+Ескерту: нақты жұмыс істеуі үшін Arduino-ға сайтпен үйлесетін бағдарлама жүктелуі керек. Бұл бөлім әзірше USB портын ашуға арналған.
+</p>
+</div>
+</section>
+
+<section id="results">
+<h2>📊 Оқушылардың нәтижелері</h2>
+<div class="card">
+<p>Жаттығу аяқталған сайын нәтиже автоматты түрде сақталады.</p>
+<div style="overflow-x:auto">
+<table>
+<thead>
+<tr>
+<th>Оқушы</th><th>Сынып</th><th>Дұрыс</th>
+<th>Барлығы</th><th>Уақыт</th><th>Дәлдік</th>
+</tr>
+</thead>
+<tbody id="resultsBody">
+<tr><td colspan="6">Әзірге нәтиже жоқ</td></tr>
+</tbody>
+</table>
+</div>
+<button class="btn" onclick="downloadCSV()">📥 Excel үшін CSV жүктеу</button>
+<button class="btn light" onclick="clearResults()">Кестені тазалау</button>
+</div>
+</section>
+
+<section>
+<h2>🔬 Ғылыми зерттеу кезеңдері</h2>
+<div class="grid">
+<div class="card"><div class="emoji">1️⃣</div><h3>Бастапқы өлшеу</h3><p>Оқушылардың есеп шығару уақыты мен дұрыс жауап санын анықтау.</p></div>
+<div class="card"><div class="emoji">2️⃣</div><h3>Үйрету кезеңі</h3><p>Соробан, моншақ, ондыққа толықтыру және ойша есептеу әдістерін қолдану.</p></div>
+<div class="card"><div class="emoji">3️⃣</div><h3>Қорытынды өлшеу</h3><p>Бірдей деңгейдегі тапсырмалар арқылы нәтижелерді салыстыру.</p></div>
+</div>
+<p class="small">Зерттеу қорытындысында уақыт, дұрыс жауап және қате саны жеке талданады. Тапсырмалар күрделілігі салыстырмалы болуы керек.</p>
+</section>
+
+</main>
+
+<footer>
+⚡ MATEMATIK REACTOR<br>
+Ойша есептеу жылдамдығын арттыру<br>
+Білім — күш!
+</footer>
+
+<script>
+let questions=[],index=0,correct=0,started=0,timer=null,active=false;
+
+function showBeads(){
+ document.getElementById("beads").innerHTML=
+ Array.from({length:7},()=>'<span class="bead"></span>').join("");
+ document.getElementById("beadText").textContent=
+ "4 моншақ + 3 моншақ = 7 моншақ!";
+}
+
+function makeQuestion(level){
+ let max=level==="easy"?10:level==="medium"?30:100;
+ let a=Math.floor(Math.random()*max)+1;
+ let b=Math.floor(Math.random()*max)+1;
+ let ops=level==="easy"?["+","-"]:
+ level==="medium"?["+","-","×"]:["+","-","×","÷"];
+ let op=ops[Math.floor(Math.random()*ops.length)];
+ if(op==="-"&&b>a)[a,b]=[b,a];
+ if(op==="÷")a=b*(Math.floor(Math.random()*9)+1);
+ let ans=op==="+"?a+b:op==="-"?a-b:op==="×"?a*b:a/b;
+ return {q:a+" "+op+" "+b+" = ?",ans:ans};
+}
+
+function startQuiz(){
+ let n=Number(document.getElementById("count").value);
+ let level=document.getElementById("level").value;
+ questions=Array.from({length:n},()=>makeQuestion(level));
+ index=0;correct=0;active=true;started=Date.now();
+ clearInterval(timer);
+ timer=setInterval(()=>{
+ document.getElementById("seconds").textContent=
+ Math.floor((Date.now()-started)/1000);
+ },500);
+ document.getElementById("feedback").textContent="Сәттілік!";
+ document.getElementById("checkBtn").disabled=false;
+ showQuestion();
+}
+
+function showQuestion(){
+ document.getElementById("question").textContent=questions[index].q;
+ document.getElementById("answer").value="";
+ document.getElementById("answer").focus();
+ document.getElementById("done").textContent=index;
+ document.getElementById("correct").textContent=correct;
+ document.getElementById("bar").style.width=
+ (index/questions.length*100)+"%";
+ document.getElementById("accuracy").textContent=
+ (index?Math.round(correct/index*100):0)+"%";
+}
+
+function checkAnswer(){
+ if(!active)return;
+ let value=document.getElementById("answer").value;
+ if(value===""){document.getElementById("feedback").textContent="Жауабыңды енгіз!";return;}
+ let ok=Number(value)===questions[index].ans;
+ if(ok)correct++;
+ document.getElementById("feedback").textContent=
+ ok?"Дұрыс! Жарайсың! 🎉":
+ "Қате. Дұрыс жауап: "+questions[index].ans;
+ index++;
+ if(index>=questions.length)finishQuiz();
+ else showQuestion();
+}
+
+function finishQuiz(){
+ active=false;clearInterval(timer);
+ let sec=Math.floor((Date.now()-started)/1000);
+ let n=questions.length;
+ let acc=Math.round(correct/n*100);
+ document.getElementById("question").textContent="Жаттығу аяқталды!";
+ document.getElementById("done").textContent=n;
+ document.getElementById("correct").textContent=correct;
+ document.getElementById("seconds").textContent=sec;
+ document.getElementById("accuracy").textContent=acc+"%";
+ document.getElementById("bar").style.width="100%";
+ document.getElementById("feedback").textContent=
+ "Нәтижең: "+correct+"/"+n+". Дәлдік: "+acc+"%. Керемет!";
+ document.getElementById("checkBtn").disabled=true;
+
+ let row={
+ name:document.getElementById("student").value||"Аты көрсетілмеген",
+ grade:document.getElementById("grade").value,
+ correct:correct,total:n,seconds:sec,accuracy:acc,
+ date:new Date().toLocaleString("kk-KZ")
+ };
+ let all=JSON.parse(localStorage.getItem("reactorResults")||"[]");
+ all.unshift(row);
+ localStorage.setItem("reactorResults",JSON.stringify(all));
+ renderResults();
+}
+
+function resetQuiz(){
+ active=false;clearInterval(timer);
+ index=0;correct=0;
+ document.getElementById("question").textContent="Дайынсың ба?";
+ document.getElementById("feedback").textContent="Жаттығуды баста!";
+ document.getElementById("done").textContent="0";
+ document.getElementById("correct").textContent="0";
+ document.getElementById("seconds").textContent="0";
+ document.getElementById("accuracy").textContent="0%";
+ document.getElementById("bar").style.width="0%";
+ document.getElementById("checkBtn").disabled=false;
+}
+
+function renderResults(){
+ let all=JSON.parse(localStorage.getItem("reactorResults")||"[]");
+ let body=document.getElementById("resultsBody");
+ body.innerHTML="";
+ if(!all.length){
+ body.innerHTML='<tr><td colspan="6">Әзірге нәтиже жоқ</td></tr>';
+ return;
+ }
+ all.forEach(x=>{
+ let tr=document.createElement("tr");
+ [x.name,x.grade,x.correct,x.total,x.seconds+" сек.",x.accuracy+"%"]
+ .forEach(value=>{
+ let td=document.createElement("td");
+ td.textContent=value;
+ tr.appendChild(td);
+ });
+ body.appendChild(tr);
+ });
+}
+
+function downloadCSV(){
+ let all=JSON.parse(localStorage.getItem("reactorResults")||"[]");
+ if(!all.length){alert("Нәтиже жоқ!");return;}
+ let csv="Оқушы;Сынып;Дұрыс;Барлығы;Уақыт;Дәлдік;Күні\n";
+ csv+=all.map(x=>[
+ x.name,x.grade,x.correct,x.total,x.seconds,x.accuracy+"%",x.date
+ ].join(";")).join("\n");
+ let blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"});
+ let url=URL.createObjectURL(blob);
+ let a=document.createElement("a");
+ a.href=url;a.download="MATEMATIK_REACTOR_natiже.csv";
+ a.click();URL.revokeObjectURL(url);
+}
+
+function clearResults(){
+ if(confirm("Барлық нәтижені өшіресіз бе?")){
+ localStorage.removeItem("reactorResults");
+ renderResults();
+ }
+}
+
+async function connectDevice(){
+ if(!("serial" in navigator)){
+ document.getElementById("deviceMessage").textContent=
+ "Бұл браузер USB Serial функциясын қолдамайды. Компьютердегі Chrome немесе Edge браузерін қолданып көр.";
+ return;
+ }
+ try{
+ let port=await navigator.serial.requestPort();
+ await port.open({baudRate:9600});
+ window.reactorPort=port;
+ document.getElementById("deviceStatus").textContent="USB порты ашылды";
+ document.getElementById("deviceStatus").style.background="#dff8ec";
+ document.getElementById("deviceStatus").style.color="#16734b";
+ document.getElementById("deviceMessage").textContent=
+ "USB порты ашылды. Arduino-мен дерек алмасу үшін үйлесімді бағдарлама қажет.";
+ }catch(e){
+ document.getElementById("deviceMessage").textContent=
+ "Қосылу орындалмады: "+e.message;
+ }
+}
+
+async function disconnectDevice(){
+ try{
+ if(window.reactorPort){
+ await window.reactorPort.close();
+ window.reactorPort=null;
+ }
+ }catch(e){}
+ document.getElementById("deviceStatus").textContent="Құрылғы қосылмаған";
+ document.getElementById("deviceStatus").style.background="#fff0d6";
+ document.getElementById("deviceStatus").style.color="#885700";
+ document.getElementById("deviceMessage").textContent="Құрылғы ажыратылды.";
+}
+
+renderResults();
+showBeads();
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATEMATIK REACTOR | Ғылыми жоба</title>
+<style>
+:root{
+--blue:#287de8;--dark:#17365f;--light:#eaf5ff;
+--pale:#f6fbff;--yellow:#fff2c9;--green:#e1f8ee;
+--text:#34465c;--border:#dceafa;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;background:var(--pale);color:var(--text);
+font-family:Arial,sans-serif;line-height:1.65
+}
+header{
+background:linear-gradient(130deg,#e3f3ff,#fff);
+padding:20px 6% 55px
+}
+nav{
+max-width:1200px;margin:auto;display:flex;
+justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px
+}
+.logo{font-weight:900;font-size:21px;color:var(--dark)}
+.logo span{color:var(--blue)}
+nav a{
+text-decoration:none;color:var(--dark);font-weight:bold;
+font-size:13px;margin:5px
+}
+.hero{
+max-width:1200px;margin:55px auto 0;
+display:grid;grid-template-columns:1.2fr .8fr;
+gap:25px;align-items:center
+}
+.hero h1{
+font-size:clamp(38px,6vw,65px);line-height:1.1;
+color:var(--dark);margin:20px 0
+}
+.hero p{font-size:18px;color:#637993}
+.tag{
+display:inline-block;background:white;color:var(--blue);
+padding:7px 13px;border:1px solid var(--border);
+border-radius:25px;font-size:13px;font-weight:bold
+}
+.reactor{
+width:270px;height:270px;border-radius:50%;
+display:grid;place-items:center;margin:auto;
+background:radial-gradient(circle,#fff 25%,#cceaff 26% 43%,
+#7ebeff 44% 47%,#fff 48% 65%,#9dd4ff 66% 69%,#fff 70%);
+box-shadow:0 0 45px #7ebeff66;
+animation:pulse 4s infinite
+}
+.reactor strong{font-size:44px;color:var(--blue)}
+@keyframes pulse{50%{transform:scale(1.04)}}
+main{max-width:1200px;margin:auto;padding:20px 5% 70px}
+section{margin:45px 0;scroll-margin-top:20px}
+h2{font-size:29px;color:var(--dark);margin-bottom:5px}
+h3{color:var(--dark)}
+.subtitle{color:#73849a;margin-top:0}
+.card{
+background:white;border:1px solid var(--border);
+border-radius:19px;padding:22px;
+box-shadow:0 8px 25px #315c8b0d
+}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.btn{
+background:var(--blue);color:white;border:0;border-radius:11px;
+padding:12px 18px;font-weight:bold;cursor:pointer
+}
+.btn.light{background:white;color:var(--blue);border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;background:white}
+th,td{padding:12px;border-bottom:1px solid var(--border);text-align:left}
+th{background:var(--light);color:var(--dark)}
+.table-wrap{overflow-x:auto;border-radius:14px}
+ul,ol{padding-left:22px}
+li{margin:6px 0}
+.big-number{font-size:32px;font-weight:900;color:var(--blue)}
+.statbox{background:var(--light);padding:18px;border-radius:15px;text-align:center}
+.statbox b{display:block;font-size:27px;color:var(--blue)}
+.barrow{display:grid;grid-template-columns:125px 1fr 55px;gap:10px;align-items:center;margin:13px 0}
+.bar{height:15px;background:#e6edf5;border-radius:20px;overflow:hidden}
+.bar span{display:block;height:100%;background:var(--blue);border-radius:20px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+input,textarea,select{
+width:100%;padding:12px;border:1px solid #cbdced;
+border-radius:10px;font:inherit;background:white;color:var(--text)
+}
+textarea{min-height:85px;resize:vertical}
+.question-card{padding:17px;border-bottom:1px solid var(--border)}
+.question-card p{font-weight:bold;color:var(--dark)}
+.options{display:flex;gap:15px;flex-wrap:wrap}
+.options label{font-size:14px;cursor:pointer}
+.options input{width:auto}
+.result-message{padding:14px;background:var(--green);border-radius:12px;margin-top:15px}
+footer{text-align:center;background:#eaf5ff;padding:28px;color:#60748e}
+.small{font-size:13px;color:#75869a}
+@media(max-width:800px){
+.hero,.two{grid-template-columns:1fr}
+.grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+.grid,.form-grid{grid-template-columns:1fr}
+nav{align-items:flex-start}
+.barrow{grid-template-columns:95px 1fr 45px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<nav>
+<div class="logo">⚡ MATEMATIK <span>REACTOR</span></div>
+<div>
+<a href="#about">Жоба</a>
+<a href="#device">Құрылғы</a>
+<a href="#research">Зерттеу</a>
+<a href="#survey">Сауалнама</a>
+<a href="#conclusion">Қорытынды</a>
+</div>
+</nav>
+
+<div class="hero">
+<div>
+<span class="tag">ҒЫЛЫМИ ЖОБА · МАТЕМАТИКА</span>
+<h1>MATEMATIK<br><span style="color:#287de8">REACTOR</span></h1>
+<h3>Ойша есептеу жылдамдығын арттыру</h3>
+<p>Arduino технологиясы арқылы бастауыш сынып оқушыларының математикалық дағдыларын дамытуға арналған интерактивті жоба.</p>
+<a href="#about"><button class="btn">Жобамен танысу →</button></a>
+</div>
+<div class="reactor"><strong>1 + 1</strong></div>
+</div>
+</header>
+
+<main>
+
+<section id="about">
+<h2>01. Жобаның сипаттамасы</h2>
+<p class="subtitle">Зерттеу жұмысының негізгі бөлімдері</p>
+
+<div class="card">
+<h3>Жобаның өзектілігі</h3>
+<p>Бастауыш сынып оқушыларының математикалық дағдыларын, ойша есептеу және логикалық ойлау қабілеттерін дамыту үшін қызықты әрі қолжетімді жаттығу құралдары қажет. Математика пәнінде қосу, азайту, көбейту және бөлу амалдарын жылдам орындау оқушылардың есептеу қабілетін арттырады.</p>
+<p>Arduino негізінде жасалған «MATEMATIK REACTOR» интерактивті құрылғысы математикалық тапсырмаларды ойын түрінде орындауға мүмкіндік береді. Жобаның өзектілігі – заманауи технологияларды пайдалану арқылы оқушылардың ойша есептеу жылдамдығын арттыру, математикалық ойлауын дамыту және математика пәніне деген қызығушылығын ояту.</p>
+</div>
+
+<div class="two" style="margin-top:17px">
+<div class="card">
+<h3>🎯 Зерттеу мақсаты</h3>
+<p>Arduino негізінде «MATEMATIK REACTOR» интерактивті құрылғысын құрастыру арқылы бастауыш сынып оқушыларының ойша есептеу жылдамдығын, математикалық және логикалық ойлау қабілеттерін дамыту, математика пәніне деген қызығушылығын арттыру.</p>
+</div>
+<div class="card">
+<h3>💡 Зерттеу болжамы</h3>
+<p>Егер бастауыш сынып оқушылары математикалық есептерді интерактивті құрылғы арқылы жүйелі түрде орындаса, олардың есептеу жылдамдығы мен дәлдігі жақсаруы мүмкін.</p>
+</div>
+</div>
+
+<div class="card" style="margin-top:17px">
+<h3>📌 Зерттеу міндеттері</h3>
+<ol>
+<li>Ойша есептеу мен математикалық ойлаудың маңызын зерттеу.</li>
+<li>Arduino құрылғысы туралы ақпарат жинау.</li>
+<li>«MATEMATIK REACTOR» құрылғысының моделін құрастыру.</li>
+<li>Құрылғыға қажетті бағдарламаны жазу.</li>
+<li>Математикалық тапсырмалар арқылы құрылғының жұмысын тексеру.</li>
+<li>Оқушылардың есеп шығару жылдамдығы мен дәлдігін анықтау.</li>
+<li>Тәжірибе нәтижелерін салыстырып, қорытынды жасау.</li>
+</ol>
+</div>
+
+<div class="two" style="margin-top:17px">
+<div class="card">
+<h3>🔬 Зерттеу әдістері</h3>
+<ul>
+<li>Ақпарат жинау</li><li>Бақылау</li><li>Тестілеу</li>
+<li>Уақытты өлшеу</li><li>Тәжірибе жасау</li>
+<li>Салыстыру</li><li>Сауалнама жүргізу</li>
+<li>Құрастыру және бағдарламалау</li>
+<li>Тексеру</li><li>Нәтижелерді талдау</li>
+</ul>
+</div>
+<div class="card">
+<h3>✨ Зерттеу жаңалығы</h3>
+<p>Жобаның жаңалығы — Arduino негізінде математикалық ойша есептеуді дамытуға арналған «MATEMATIK REACTOR» интерактивті құрылғысын жасау идеясы.</p>
+<p>Құрылғыда қосу, азайту, көбейту және бөлу амалдары қолданылады. Оқушылар есептерді ауызша шығарып, жауаптарын батырмалар арқылы таңдап, нәтижесін тексере алады.</p>
+</div>
+</div>
+
+<div class="card" style="margin-top:17px">
+<h3>📚 Практикалық маңызы</h3>
+<ul>
+<li>Қосу, азайту, көбейту және бөлу амалдарын қайталауға көмектеседі.</li>
+<li>Ойша есептеу жылдамдығы мен жауап беру дәлдігін дамытуға бағытталған.</li>
+<li>Оқушылардың есептеу нәтижесін бірден тексеруге мүмкіндік береді.</li>
+<li>Сандарды жылдам тану, есте сақтау және логикалық ойлау қабілеттерін жаттықтырады.</li>
+<li>Есептерді уақытқа орындау арқылы өз нәтижелерін бақылауға жағдай жасайды.</li>
+<li>Математика сабағында және үйде қосымша жаттығу құралы ретінде қолдануға болады.</li>
+<li>Arduino технологиясы арқылы математика мен бағдарламалауды байланыстырады.</li>
+</ul>
+</div>
+</section>
+
+<section id="device">
+<h2>02. MATEMATIK REACTOR құрылғысын жасау</h2>
+<p class="subtitle">Құрылғының идеясы, жұмыс істеу тәртібі және қажетті бөлшектер</p>
+
+<div class="card">
+<h3>⚙️ Құрылғының идеясы</h3>
+<p>«MATEMATIK REACTOR» — оқушылардың математикалық есептерді интерактивті түрде орындауына арналған шағын электрондық құрылғы.</p>
+<ol>
+<li>Құрылғы іске қосылады.</li>
+<li>Экранда математикалық есеп пайда болады.</li>
+<li>Оқушы үш батырманың бірін басып, жауапты таңдайды.</li>
+<li>Құрылғы жауапты тексереді.</li>
+<li>Дұрыс жауап берілсе, жасыл шам жанады.</li>
+<li>Қате жауап берілсе, қызыл шам жанады.</li>
+<li>Дыбыстық белгі беріледі.</li>
+<li>Келесі есеп көрсетіледі.</li>
+<li>Он есеп аяқталғаннан кейін дұрыс жауап саны мен жұмсалған уақыт көрсетіледі.</li>
+</ol>
+</div>
+
+<div class="card" style="margin-top:17px">
+<h3>🔧 Қажетті бөлшектер</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>№</th><th>Бөлшек атауы</th><th>Қызметі</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Arduino Uno</td><td>Құрылғыны басқару</td></tr>
+<tr><td>2</td><td>LCD 1602 I2C экраны</td><td>Есептер мен нәтижелерді көрсету</td></tr>
+<tr><td>3</td><td>3 батырма</td><td>Жауап нұсқасын таңдау</td></tr>
+<tr><td>4</td><td>Жасыл LED</td><td>Дұрыс жауапты белгілеу</td></tr>
+<tr><td>5</td><td>Қызыл LED</td><td>Қате жауапты белгілеу</td></tr>
+<tr><td>6</td><td>Зуммер</td><td>Дыбыстық белгі беру</td></tr>
+<tr><td>7</td><td>Breadboard</td><td>Бөлшектерді уақытша жалғау</td></tr>
+<tr><td>8</td><td>Жалғағыш сымдар</td><td>Электрондық бөлшектерді байланыстыру</td></tr>
+<tr><td>9</td><td>USB кабелі</td><td>Бағдарламалау және қуат беру</td></tr>
+<tr><td>10</td><td>Құрылғы корпусы</td><td>Бөлшектерді қорғау және орналастыру</td></tr>
+</tbody>
+</table>
+</div>
+<p class="small">Құрылғыны жинамас бұрын бөлшектердің өзара үйлесімділігін және электрлік жалғау сызбасын тексеру қажет.</p>
+</div>
+</section>
+
+<section id="research">
+<h2>03. Зерттеу нәтижелері</h2>
+<p class="subtitle">3–4-сынып оқушыларының тәжірибелік жұмысы</p>
+
+<div class="grid">
+<div class="statbox"><b>20</b>Зерттеуге қатысқан оқушы</div>
+<div class="statbox"><b>10</b>Әр оқушыға берілген есеп</div>
+<div class="statbox"><b>3–4</b>Қатысқан сыныптар</div>
+</div>
+
+<div class="card" style="margin-top:17px">
+<h3>Зерттеуді ұйымдастыру</h3>
+<p>Зерттеу «Есет мектеп – бөбекжай кешені» КММ-нің 3 және 4-сынып оқушыларымен жүргізілді. Зерттеуге 20 оқушы қатысты.</p>
+<p>Зерттеудің мақсаты — «MATEMATIK REACTOR» құрылғысын пайдалану арқылы оқушылардың қосу, азайту, көбейту және бөлу амалдарын ойша орындау жылдамдығы мен дәлдігінің өзгерісін анықтау.</p>
+<p>Зерттеу барысында 10 математикалық есепті орындауға жұмсалған уақыт, дұрыс және қате жауаптар саны өлшеніп, бастапқы және кейінгі көрсеткіштер салыстырылды.</p>
+</div>
+
+<div class="card" style="margin-top:17px">
+<h3>📊 Жалпы нәтижелерді салыстыру</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Көрсеткіш</th><th>Бастапқы</th><th>Кейінгі</th><th>Өзгеріс</th></tr></thead>
+<tbody>
+<tr><td>Орташа уақыт</td><td>52,5 сек.</td><td>43,7 сек.</td><td>8,8 сек. азайды</td></tr>
+<tr><td>Орташа дұрыс жауап</td><td>7,2</td><td>8,2</td><td>1-ге артты</td></tr>
+<tr><td>Орташа қате жауап</td><td>2,8</td><td>1,8</td><td>1-ге азайды</td></tr>
+<tr><td>Уақыттың қысқаруы</td><td>—</td><td>—</td><td>16,8%</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="card" style="margin-top:17px">
+<h3>⏱️ Орташа уақыт көрсеткіші</h3>
+<div class="barrow"><span>Бастапқы</span><div class="bar"><span style="width:100%"></span></div><b>52,5 с</b></div>
+<div class="barrow"><span>Кейінгі</span><div class="bar"><span style="width:83.2%"></span></div><b>43,7 с</b></div>
+<p class="small">Уақыт көрсеткіші азайған сайын тапсырманы орындау жылдамдығы артқанын білдіреді.</p>
+</div>
+
+<div class="two" style="margin-top:17px">
+<div class="card">
+<h3>Дұрыс жауаптар</h3>
+<div class="barrow"><span>Бастапқы</span><div class="bar"><span style="width:72%"></span></div><b>7,2</b></div>
+<div class="barrow"><span>Кейінгі</span><div class="bar"><span style="width:82%"></span></div><b>8,2</b></div>
+</div>
+<div class="card">
+<h3>Қате жауаптар</h3>
+<div class="barrow"><span>Бастапқы</span><div class="bar"><span style="width:28%"></span></div><b>2,8</b></div>
+<div class="barrow"><span>Кейінгі</span><div class="bar"><span style="width:18%"></span></div><b>1,8</b></div>
+</div>
+</div>
+
+<div class="card" style="margin-top:17px">
+<h3>Нәтижелерді талдау</h3>
+<p>Қорытынды нәтижелерді салыстырғанда, оқушылардың есептерді орындауға жұмсаған орташа уақыты 52,5 секундтан 43,7 секундқа дейін азайғаны байқалады. Яғни тапсырмаларды орындау уақыты 8,8 секундқа қысқарған.</p>
+<p>Дұрыс жауаптардың орташа саны 7,2-ден 8,2-ге артса, қате жауаптардың саны 2,8-ден 1,8-ге азайған.</p>
+<p>Бұл көрсеткіштер тәжірибеге қатысқан оқушылардың тапсырмаларды орындау нәтижесінде оң өзгеріс болғанын көрсетеді.</p>
+</div>
+</section>
+
+<section id="survey">
+<h2>04. Оқушыларға арналған сауалнама</h2>
+<p class="subtitle">20 оқушының құрылғы туралы пікірін анықтауға арналған интерактивті сауалнама</p>
+
+<div class="card">
+<h3>Нұсқаулық</h3>
+<p>Сұрақтарды мұқият оқып, өз ойыңды білдіретін жауапты белгіле. Әр сұраққа бір жауап таңда. Ашық сұрақтарға өз пікіріңді жаз. Сауалнамада дұрыс немесе бұрыс жауап жоқ.</p>
+
+<form id="surveyForm">
+<div class="form-grid" style="margin:15px 0">
+<div><label>Оқушының аты (міндетті емес)</label><input id="surveyName" placeholder="Атыңды жаз"></div>
+<div><label>Сыныбы</label><select id="surveyGrade"><option>3-сынып</option><option>4-сынып</option></select></div>
+</div>
+<div id="questions"></div>
+<button class="btn" type="submit">Сауалнаманы жіберу</button>
+</form>
+<div id="surveyMessage"></div>
+</div>
+
+<div class="card" style="margin-top:17px">
+<h3>📈 Сауалнама жауаптарының жиынтығы</h3>
+<p id="surveyCount">Жауап берген оқушылар: 0</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Сұрақ</th><th>Жауаптар саны</th></tr></thead>
+<tbody id="surveyResults"><tr><td colspan="2">Әзірге жауап жоқ</td></tr></tbody>
+</table>
+</div>
+<button class="btn light" onclick="downloadSurvey()">Сауалнаманы CSV жүктеу</button>
+</div>
+</section>
+
+<section id="conclusion">
+<h2>05. Қорытынды және ұсыныстар</h2>
+<div class="card">
+<h3>Зерттеу қорытындысы</h3>
+<p>Зерттеу нәтижелерін салыстыру барысында оқушылардың орташа есеп орындау уақыты қысқарып, дұрыс жауап саны артқаны байқалды. Қате жауаптар саны азайды. Бұл интерактивті жаттығуларды жүйелі қолдану оқушылардың есептеу дағдыларын жаттықтыруға көмектесуі мүмкін екенін көрсетеді.</p>
+<h3>Ұсыныстар</h3>
+<ol>
+<li>MATEMATIK REACTOR құрылғысы мен сайтын математика сабақтарында қолдану.</li>
+<li>Оқушылардың ойша есептеу жылдамдығын, математикалық ойлауын және зейінін дамытуға бағытталған жаттығуларды жүйелі орындау.</li>
+<li>Оқушылардың нәтижелерін салыстырып, есептеу дағдыларының даму динамикасын бақылау.</li>
+<li>Жобаны жетілдіріп, жаңа математикалық тапсырмалармен толықтыру.</li>
+</ol>
+</div>
+</section>
+
+</main>
+
+<footer>
+⚡ MATEMATIK REACTOR<br>
+Ойша есептеу жылдамдығын арттыру<br>
+Ғылыми жоба
+</footer>
+
+<script>
+const surveyQuestions=[
+["Құрылғы арқылы есеп шығарған ұнады ма?",["Иә","Жоқ","Орташа"]],
+["Есептердің жауаптарын таңдау оңай болды ма?",["Иә","Жоқ","Кейбірі қиын болды"]],
+["Құрылғы арқылы тағы да есеп шығарғың келе ме?",["Иә","Жоқ","Білмеймін"]],
+["Құрылғының қай бөлігі саған ұнады?",null],
+["Құрылғыға қандай өзгеріс енгізер едің?",null],
+["Құрылғы арқылы есептерді ойша шығару жеңілдеді ме?",["Иә","Жоқ","Аздап"]],
+["Есептерді бұрынғыдан жылдам шығара аламын деп ойлайсың ба?",["Иә","Жоқ","Әлі білмеймін"]],
+["Қосу және азайту амалдарын орындау саған оңай ма?",["Иә","Жоқ","Кейде қиын"]],
+["Көбейту және бөлу амалдарын ойша орындау саған оңай ма?",["Иә","Жоқ","Кейде қиын"]],
+["Құрылғы жауаптың дұрыс немесе қате екенін көрсеткені саған көмектесті ме?",["Иә","Жоқ","Аздап"]],
+["Құрылғымен жаттығу кезінде дұрыс жауаптарың көбейді деп ойлайсың ба?",["Иә","Жоқ","Байқамадым"]],
+["Математика сабағында осы құрылғыны пайдаланғың келе ме?",["Иә","Жоқ","Кейде"]],
+["MATEMATIK REACTOR құрылғысы математикаға деген қызығушылығыңды арттырды ма? Неліктен?",null]
+];
+
+const qbox=document.getElementById("questions");
+surveyQuestions.forEach((q,i)=>{
+ let div=document.createElement("div");
+ div.className="question-card";
+ let p=document.createElement("p");
+ p.textContent=(i+1)+". "+q[0];
+ div.appendChild(p);
+ if(q[1]){
+ let options=document.createElement("div");
+ options.className="options";
+ q[1].forEach((v,j)=>{
+ let label=document.createElement("label");
+ let radio=document.createElement("input");
+ radio.type="radio";radio.name="q"+i;radio.value=v;radio.required=true;
+ label.append(radio," "+v);options.appendChild(label);
+ });
+ div.appendChild(options);
+ }else{
+ let area=document.createElement("textarea");
+ area.name="q"+i;area.placeholder="Өз пікіріңді жаз...";
+ if(i!==12)area.required=true;
+ div.appendChild(area);
+ }
+ qbox.appendChild(div);
+});
+
+function getSurveys(){
+ return JSON.parse(localStorage.getItem("reactorSurveys")||"[]");
+}
+
+document.getElementById("surveyForm").addEventListener("submit",function(e){
+ e.preventDefault();
+ let data={
+ name:document.getElementById("surveyName").value||"Аты көрсетілмеген",
+ grade:document.getElementById("surveyGrade").value,
+ answers:surveyQuestions.map((q,i)=>{
+ let el=this.elements["q"+i];
+ if(q[1]){
+ let selected=this.querySelector('input[name="q'+i+'"]:checked');
+ return selected?selected.value:"";
+ }
+ return el.value.trim();
+ }),
+ date:new Date().toLocaleString("kk-KZ")
+ };
+ let all=getSurveys();all.push(data);
+ localStorage.setItem("reactorSurveys",JSON.stringify(all));
+ document.getElementById("surveyMessage").innerHTML=
+ '<div class="result-message">Рақмет! Жауабың сақталды. 🌟</div>';
+ this.reset();
+ renderSurveyResults();
+});
+
+function renderSurveyResults(){
+ let all=getSurveys();
+ document.getElementById("surveyCount").textContent=
+ "Жауап берген оқушылар: "+all.length;
+ let body=document.getElementById("surveyResults");
+ body.innerHTML="";
+ if(!all.length){
+ body.innerHTML='<tr><td colspan="2">Әзірге жауап жоқ</td></tr>';
+ return;
+ }
+ surveyQuestions.forEach((q,i)=>{
+ if(!q[1])return;
+ let counts={};
+ all.forEach(x=>{
+ let a=x.answers[i];
+ if(a)counts[a]=(counts[a]||0)+1;
+ });
+ let tr=document.createElement("tr");
+ let td1=document.createElement("td");
+ let td2=document.createElement("td");
+ td1.textContent=(i+1)+". "+q[0];
+ td2.textContent=Object.entries(counts).map(x=>x[0]+": "+x[1]).join(" | ")||"—";
+ tr.append(td1,td2);body.appendChild(tr);
+ });
+}
+
+function downloadSurvey(){
+ let all=getSurveys();
+ if(!all.length){alert("Сауалнама жауаптары әлі жоқ.");return;}
+ let rows=[["Оқушы","Сынып",...surveyQuestions.map((q,i)=>(i+1)+". "+q[0]),"Күні"]];
+ all.forEach(x=>rows.push([x.name,x.grade,...x.answers,x.date]));
+ let csv=rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(";")).join("\n");
+ let blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"});
+ let url=URL.createObjectURL(blob);
+ let a=document.createElement("a");a.href=url;
+ a.download="MATEMATIK_REACTOR_sauалнама.csv";a.click();
+ URL.revokeObjectURL(url);
+}
+renderSurveyResults();
+</script>
+</body>
+</html>
